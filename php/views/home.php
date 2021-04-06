@@ -10,7 +10,6 @@
         <!-- corps de la page -->
             <div id="soldes2" class="row">
                 <?php
-                //AAAAAAAAAAAAAAA
                     echo "yo";
                 ?>
             </div>

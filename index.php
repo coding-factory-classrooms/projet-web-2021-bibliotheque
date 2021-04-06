@@ -9,7 +9,6 @@ require_once 'php\\partials\\header.php';
 
 //Uses to switch between the different pages 
 $page = 'home';
-partials_header($page);
 if (isset($_GET['p'])) {
     if (in_array($_GET['p'],$pages)){
         $page = $_GET['p'];
@@ -18,6 +17,8 @@ if (isset($_GET['p'])) {
         $page = '404';
     }
 }
+partials_header($page);
+
 //In case the user want to delete or to Log out with his account
 if (isset($_GET['delete'])){
     if (in_array($_GET['delete'],$del)){
