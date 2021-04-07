@@ -23,10 +23,16 @@ nav{
     width: 15%;
 }
 #logo{
-    margin-left: 2%;
+    margin-left: 2%;  
 }
 #img_logo{
     width: 30%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#img_logo:hover{
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
 }
 
 
@@ -44,6 +50,13 @@ nav{
 .link{
     text-decoration: none;
     color: black;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.link:hover{
+    color: #000000;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
 }
 .link::after{
     content: '';
@@ -74,4 +87,23 @@ nav{
     padding: 2%;
     border-radius: 6px;
     border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    animation-duration: 1.5s;
+    animation-name: slideMenu;
+}
+#btn-connexion:hover{
+    background-color: #69acaf;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+@keyframes slideMenu {
+    from {
+      margin-right: -100%;
+      width: 10%;
+    }
+  
+    to {
+      width: 50%;
+    }
 }
