@@ -11,9 +11,6 @@
             <div id="soldes2" class="row">
                 <?php
                     echo "yo";
-                    $req = $db->query('SELECT U.username FROM user as U');
-                    $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
-
                     var_dump($resultDB);
                 ?>
             </div>
