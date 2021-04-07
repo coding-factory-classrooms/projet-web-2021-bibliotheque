@@ -9,22 +9,26 @@
     <hr>
 
     <label class ="data" for="name"></label>
-    <input class ="inputData" type="text" placeholder="Name" name="name" id="name" required>
+    <input class ="inputData" type="text" placeholder="Nom" name="name" id="name" required>
     <hr>
 
     <label class ="data" for="image"></label>
-    <input class ="inputData" type="text" placeholder="Image link (optional)" name="image" id="image">
+    <input class ="inputData" type="text" placeholder="Lien d'une Image (optionel)" name="image" id="image">
     <hr>
 
     <label class ="data" for="description"></label>
     <input class ="inputData" type="text" placeholder="Description" name="description" id="description">
     <hr>
 
+    <label class ="data" for="category"></label>
+    <input class ="inputData" type="text" placeholder="Categorie" name="category" id="category" required>
+    <hr>
+
     <label class ="data" for="tags"><b>Tags</b></label>
     <input class ="inputData" type="text" name="tags" id="tags">
     <hr>
 
-    <label class ="data" for="advancement"><b>Advancement</b></label>
+    <label class ="data" for="advancement"><b>Avancement</b></label>
     <input class ="inputData" type="text" name="advancement" id="advancement">
     <hr>
 
