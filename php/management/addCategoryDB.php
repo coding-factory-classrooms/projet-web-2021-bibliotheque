@@ -18,6 +18,7 @@ $req = $db->prepare('INSERT INTO categorie (numCategorie, name, numUser) VALUES(
 $req->bindValue(':name' , $result["name"]);
 $req->bindValue(':numCategorie' , count($listCategory));
 $req->bindValue(':numUser' , $_SESSION['ID']);
+
 $req->execute();
 
 echo "envoie réussi";

@@ -5,8 +5,7 @@ function partials_header($page) {
 <head>
     <html lang="fr">
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <title><?php echo ucfirst($page); ?></title>
 </head>
 <body>
