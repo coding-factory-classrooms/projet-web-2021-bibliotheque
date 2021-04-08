@@ -1,5 +1,5 @@
 .login {
-    width: 350px;
+    width: 400px;
     background-color: #e2e2e2;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     float: right; 
@@ -52,4 +52,11 @@
 .login form input[type="submit"]:hover {
   background-color: #5CE1E6;
     transition: background-color 0.2s;
+}
+#image{
+    /*float: left;*/
+    position: relative;
+    padding-top: 15%;
+    left: 25%;
+    
 }
