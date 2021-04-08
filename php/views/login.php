@@ -33,7 +33,7 @@
     </div>
 
     <div id="image">
-        <img src="asset/logo_larchive.png" alt="larchive" width="20%">
+        <img src="asset/logo_larchive.png" alt="larchive" width="35%">
     </div>
     
 </body>
