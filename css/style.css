@@ -1,32 +1,48 @@
+@font-face {
+    font-family: "Limlight";
+    src: url("asset/Limelight/Limelight-Regular.ttf");
+  }
+
+@font-face {
+    font-family: "Inter";
+    src: url("asset/Inter/Inter-VariableFont_slnt\,wght.ttf");
+  }
+
 body{
-    background-color: rgb(221, 221, 221);
-    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;;
+    font-family: Limelight;
+    background: url(asset/background3.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.container{
-    background-image: url;
-}
 
 nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: grey;
+    background-color: rgb(255, 255, 255);
     padding: 1%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
 }
-
 .block1{
     width: 15%;
 }
 #logo{
-    margin-left: 5%;
+    margin-left: 2%;  
 }
 #img_logo{
     width: 30%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#img_logo:hover{
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
 }
 
 
@@ -34,11 +50,35 @@ nav{
     width: 60%;
 }
 #cat{
-    margin-top: 1.5%;
+    margin-top: 0.4%;
 }
-#link-stat{
+#list-link{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.link{
     text-decoration: none;
     color: black;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.link:hover{
+    color: #000000;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+.link::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #8AE3E8;
+    transition: width .5s;
+}
+.link:hover::after{
+    width: 100%;
+    color: #8AE3E8;
 }
 
 
@@ -57,4 +97,65 @@ nav{
     padding: 2%;
     border-radius: 6px;
     border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    animation-duration: 1.5s;
+    animation-name: slideMenu;
+    font-family: Limelight;
+}
+#btn-connexion:hover{
+    background-color: #69acaf;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+@keyframes slideMenu {
+    from {
+      margin-right: -100%;
+      width: 10%;
+    }
+  
+    to {
+      width: 50%;
+    }
+}
+
+
+.container{
+    position: relative;
+    top: 150px;
+    left: 18%;
+    width: 60%;
+    padding: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Inter;
+}
+#intro{
+    margin-bottom: 6%;
+    text-align: center;
+}
+h3{
+    position: relative;
+    top: 110px;
+    left: 33%;
+    font-size: 50px;
+    font-family: Limelight;
+}
+#login{
+    margin-left: 37%;
+    text-decoration: none;
+    border: none;
+    padding: 2% 5% 2% 5%;
+    font-size: 20px;
+    background-color: #8AE3E8;
+    border-radius: 5px;
+    color: white;
+    font-family: Limelight;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#login:hover{
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
 }

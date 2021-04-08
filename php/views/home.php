@@ -3,18 +3,20 @@
 <?php require_once "php/init.php";?>
 
 <body>
-
-    <!-- menu -->
-    <div class="container-fluid" id="body">
-        <div class="row" id="body2">
-        <!-- corps de la page -->
-            <div id="soldes2" class="row">
-                <?php
-                    echo "yo";
-                    var_dump($resultDB);
-                ?>
-            </div>
+    <h3>Archiver vos Envies !</h3>
+        <div class="container">
+            <p id="intro">
+                Larchive vous permets de classer, conserver, ranger et analyser le contenu que vous consommez aucours de l’année.
+                <br>
+                <br>
+                Créez vos propre bibliothèques, vos tags et rangements, transformez ces données en statistiques, et tirez en vos conclusions!
+                <br>
+                <br>
+                Avec ses bibliothèques pré-faites, sa possibilité de crééer autant de nouvelles bibliothèques que possible,  les possibilités sont infinies.
+            </p>
+            <a href="#">
+                <button id="login" type="button">Je m'Inscris</button>
+            </a>
         </div>
-    </div>
 </body>
 </html>
