@@ -22,7 +22,7 @@ partials_header($page);
 //In case the user want to delete or to Log out with his account
 if (isset($_GET['delete'])){
     if (in_array($_GET['delete'],$del)){
-        require_once 'php\\management\\'.$_GET['delete'].'.php';
+        require_once 'php/management/'.$_GET['delete'].'.php';
         header('Location: ?p=login');
         die;
     }
