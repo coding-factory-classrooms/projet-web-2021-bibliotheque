@@ -2,7 +2,7 @@
 
 // check auth
 
-require_once "php/init.php";
+require_once 'php/init.php';
 require_once 'php/partials/header.php';
 
 //'pages' and 'delete' are Array declared in init.php and refer to different status

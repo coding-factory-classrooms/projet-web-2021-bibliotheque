@@ -12,7 +12,9 @@ function partials_header($page) {
     <header>
         <nav>
             <div class="block block1" id="logo">
-               <img id="img_logo" src="asset/logo_larchive.png" alt="LARCHIVE">
+                <a href="?p=home">
+                    <img id="img_logo" src="asset/logo_larchive.png" alt="LARCHIVE">
+                </a>
             </div>
             <div class="block block2" id="cat">
                 <p id="list-link"><a class="link" href="#">Archive </a>&ensp; | &ensp;<a class="link" href="#"> Statistique</a>

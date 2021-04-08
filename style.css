@@ -1,3 +1,4 @@
+/*general style*/
 @font-face {
     font-family: "Limlight";
     src: url("asset/Limelight/Limelight-Regular.ttf");
@@ -16,8 +17,9 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
+/* end general style*/
 
-
+/*style header*/
 nav{
     display: flex;
     flex-direction: row;
@@ -28,6 +30,7 @@ nav{
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 }
 .block1{
     width: 15%;
@@ -105,6 +108,7 @@ nav{
 }
 #btn-connexion:hover{
     background-color: #69acaf;
+    color: white;
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
@@ -118,8 +122,9 @@ nav{
       width: 50%;
     }
 }
+/*end style header*/
 
-
+/* home style*/
 .container{
     position: relative;
     top: 150px;
@@ -159,3 +164,100 @@ h3{
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
+/* end home */
+
+
+/* style page display object */
+/* style search bar, tag & sort object */
+.container-obj{
+    position: relative;
+    top: 100px;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.search-obj{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+}
+#side-left{
+    width: 33%;
+    text-align: center;
+}
+#side-right{
+    width: 60%;
+}
+h2{
+    margin: 7.5% 1% 0% 1%;
+}
+.input{
+    margin: 5% 4% 5% 1%;
+    height: 20px;
+    border: none;
+    border-bottom: 2px solid#8AE3E8;
+    width: 60%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.input:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+#sort{
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#sort:hover{
+    color: #8AE3E8;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+.btn{
+    height: 25px;
+    margin: 5% 1% 5% 1%;
+}
+#create-cat{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#create-cat{
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+/* end style search bar, tag & sort object */
+
+/* style container elements */
+.object{
+    background-color: rgba(139, 137, 137, 0.219);
+    border-radius: 10px;
+    margin-top: 2%;
+    padding: 1%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+#element-cat{
+    background-color: white;
+    width: 23%;
+    height: 150px;
+    text-align: center;
+    margin: 1%;
+    border-radius: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#element-cat:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+}
+/* end style container elements */

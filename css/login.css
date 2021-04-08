@@ -58,5 +58,5 @@
     position: relative;
     padding-top: 15%;
     left: 25%;
-    
+    z-index: -1;
 }
