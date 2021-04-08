@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Limlight";
-    src: url("asset/Limelight/Limelight-Regular.ttf");
+    src: url("../asset/Limelight/Limelight-Regular.ttf");
   }
 
 @font-face {
     font-family: "Inter";
-    src: url("asset/Inter/Inter-VariableFont_slnt\,wght.ttf");
+    src: url("../asset/Inter/Inter-VariableFont_slnt\,wght.ttf");
   }
 
 body{
     font-family: Limelight;
-    background: url(asset/background3.jpeg) no-repeat center center fixed; 
+    background: url(../asset/background3.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

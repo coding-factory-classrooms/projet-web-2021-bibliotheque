@@ -2,8 +2,8 @@
 
 // check auth
 
-require_once "php\\init.php";
-require_once 'php\\partials\\header.php';
+require_once 'php/init.php';
+require_once 'php/partials/header.php';
 
 //'pages' and 'delete' are Array declared in init.php and refer to different status
 
@@ -28,5 +28,5 @@ if (isset($_GET['delete'])){
     }
 }
 
-require_once 'php\\views\\' . $page . '.php';
+require_once 'php/views/' . $page . '.php';
 ?>
