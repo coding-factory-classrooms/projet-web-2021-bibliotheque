@@ -13,7 +13,7 @@ parse_str($url["query"],$result);
 var_dump($result);
 
 //  Récupération du pseudo et de son mdp hashé
-$req = $db->query('SELECT U.username, U.password FROM user as U WHERE U.username like "'.$result["username"].'"');
+$req = $db->query('SELECT U.username, U.password, U.numUser FROM user as U WHERE U.username like "'.$result["username"].'"');
 $resultDB = $req->fetch(PDO::FETCH_ASSOC);
 
 var_dump($resultDB);
@@ -26,8 +26,8 @@ else{
     // Comparaison du mdp envoyé via le formulaire avec la base
     //$isPasswordCorrect = password_verify($result['psw'], $resultDB['Password']);
     if ($result['password']==$resultDB['password']) {
-        $_SESSION['numUser'] = $resultDB['numUser'];
-        $_SESSION['username'] = $resultDB['username'];
+        $_SESSION['ID'] = (int) $resultDB['numUser'];
+        $_SESSION['Username'] = $resultDB['username'];
 
         header('Location: ../../'.'?p=home');
         die();

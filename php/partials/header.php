@@ -20,8 +20,8 @@ function partials_header($page) {
                 
             </div>
             <div class="block block3" id="connexion">
-                <a href="#">
-                <button id="btn-connexion" type="button">Connexion</button>
+                <a href="?p=login">
+                    <button id="btn-connexion" type="button">Connexion</button>
                 </a>
             </div>
         </nav>

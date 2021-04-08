@@ -21,8 +21,8 @@ $req->bindValue(':numUser' , $_SESSION['ID']);
 
 $req->execute();
 
-echo "envoie réussi";
-//header('Location: ../../'.'?p=home');
+echo "envoi réussi";
+handleError("Création Réussi !");
 die;
 
 ?>
