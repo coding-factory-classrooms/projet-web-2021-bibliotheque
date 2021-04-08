@@ -27,6 +27,5 @@ if (isset($_GET['delete'])){
         die;
     }
 }
-
 require_once 'php/views/' . $page . '.php';
 ?>

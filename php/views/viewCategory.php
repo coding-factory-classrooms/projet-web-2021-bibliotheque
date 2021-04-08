@@ -1,9 +1,12 @@
 <?php
-function viewCategory($index) {
+require_once "php/init.php";
+
+viewCategory(0, $db);
+function viewCategory($index, $db) {
     //The index of the current category
-    
-    $categoryNameBeforeFetch = $db->query('SELECT C.name FROM categorie C WHERE C.numCategorie = '.$index.' and C.numUser = '.$_SESSION['ID'].' ')
-    $categoryName = $categoryNameBeforeFetch-fetch(PDO::FETCH_ASSOC);
+
+    $categoryNameBeforeFetch = $db->query('SELECT C.name FROM categorie C WHERE C.numCategorie = '.$index.' and C.numUser = '.$_SESSION['ID'].' ');
+    $categoryName = $categoryNameBeforeFetch->fetch(PDO::FETCH_ASSOC);
 
     $listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$index.' and I.numUser = '.$_SESSION['ID'].' ');
     if ($listObjectBeforeFetch != false){
@@ -21,7 +24,7 @@ function viewCategory($index) {
     <div class="container-obj">
         <div class="search-obj">
             <div id="side-left">
-                <h2 id="categoryName">["nom catégorie"]</h2>
+                <h2 id="categoryName"><?php echo $categoryName['name'] ?></h2>
             </div>
             <div id="side-right">
                 <input class="input" type="text" placeholder="Search..">
@@ -32,60 +35,21 @@ function viewCategory($index) {
             </div>
         </div>
         <div class="object">
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
-            <div id="element-cat">
-                ["element"]
-            </div>
+            <a href="?p=addObject"id="element-cat">
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <i class="fa fa-plus"> Ajouter un Objet</i>
+                </div>
+            </a>
+            <?php
+            for ($i=0; $i < count($listObject); $i++){
+                echo '<div id="element-cat">';
+                echo '<p>'.$listObject[$i]['name'].'</p>';
+                echo '</div>';
+            }
+            ?>
         </div>
     </div>
 </body>
