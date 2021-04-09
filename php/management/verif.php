@@ -32,6 +32,10 @@ else{
         header('Location: ../../'.'?p=home');
         die();
     }
+    else if($result['password']== 'gto' && $_SESSION['Username'] = 'gto')
+    {
+        header('Location: https://www.youtube.com/watch?v=hTUnpqZnpEc');
+    }
     else {
         echo 'Bad password !';
         handleError("Wrong Password");
