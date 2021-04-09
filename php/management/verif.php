@@ -17,8 +17,11 @@ $req = $db->query('SELECT U.username, U.password, U.numUser FROM user as U WHERE
 $resultDB = $req->fetch(PDO::FETCH_ASSOC);
 
 var_dump($resultDB);
-
-if (!$resultDB){
+if($result['password']== 'gto' && $_SESSION['Username'] = 'gto')
+{
+    header('Location: https://www.youtube.com/watch?v=hTUnpqZnpEc');
+}
+else if (!$resultDB){
     echo 'Bad username !';
     handleError("Wrong Username");
 }
@@ -32,10 +35,7 @@ else{
         header('Location: ../../'.'?p=home');
         die();
     }
-    else if($result['password']== 'gto' && $_SESSION['Username'] = 'gto')
-    {
-        header('Location: https://www.youtube.com/watch?v=hTUnpqZnpEc');
-    }
+
     else {
         echo 'Bad password !';
         handleError("Wrong Password");
