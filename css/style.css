@@ -236,7 +236,7 @@ h2{
 /* end style search bar, tag & sort object */
 
 /* style container elements */
-.object{
+#object{
     background-color: rgba(139, 137, 137, 0.219);
     border-radius: 10px;
     margin-top: 2%;
@@ -246,7 +246,7 @@ h2{
     flex-wrap: wrap;
     overflow-y: scroll;
 }
-#element-cat{
+.element-cat{
     background-color: white;
     width: 23%;
     height: 150px;
@@ -256,8 +256,9 @@ h2{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
 }
-#element-cat:hover{
+.element-cat:hover{
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
 }
+.hidden {display: none !important;}
 /* end style container elements */

@@ -27,15 +27,15 @@ function viewCategory($index, $db) {
                 <h2 id="categoryName"><?php echo $categoryName['name'] ?></h2>
             </div>
             <div id="side-right">
-                <input class="input" type="text" placeholder="Search..">
+                <input class="input" type="text" placeholder="Search.." id="searchBar" onkeyup="search()">
                 <button class="btn" id="sort" type="button">Trier par ...</button>
                 <a class="search btn" href="#">
                     <button class="btn" id="create-cat" type="button"><i class="fa fa-plus"></i></button>
                 </a>
             </div>
         </div>
-        <div class="object">
-            <a <?php echo "href=?p=addObject&c=".$index ?> id="element-cat">
+        <div id="object">
+            <a <?php echo "href=?p=addObject&c=".$index ?> class="element-cat">
                 <div>
                     <br>
                     <br>
@@ -45,7 +45,7 @@ function viewCategory($index, $db) {
             </a>
             <?php
             for ($i=0; $i < count($listObject); $i++){
-                echo '<div id="element-cat">';
+                echo '<div class="element-cat id">';
                 echo '<p>'.$listObject[$i]['name'].'</p>';
                 echo '</div>';
             }
@@ -53,6 +53,7 @@ function viewCategory($index, $db) {
         </div>
     </div>
 </body>
+<script src="js/searchbar.js"></script>
 </html>
 
 <?php
