@@ -42,7 +42,8 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <datalist id="list">
         <option value="Film">
         <option value="Série">
-        <option value="Mangas">
+        <option value="Musique">
+        <option value="Ma Categorie">
       </datalist>
 
 
