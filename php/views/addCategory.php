@@ -8,7 +8,7 @@
       <div id="container-add">
           <div id="container-addCat">
             <form action= "php/management/addCategoryDB.php">
-              <h1>Add a Category</h1>
+              <h1>Ajouter une catégorie</h1>
               <label class ="data" for="name"></label>
               <input class ="inputData" type="text" placeholder="Name" name="name" id="name" required>
               <?php 
@@ -20,13 +20,16 @@
                 unset($_SESSION['error_message']);
               }
               ?>
-              <input class="inputAdd" type="submit" class="registerbtn" value="Add">
+              <button class="inputAdd" type="submit" class="registerbtn">Ajouter</button>
               <!--<p><br><a href="?p=main"><- Return</a>.</p>-->
             </form>
           </div>
         
           <div id="container-addObject">
-          
+            <div id="addObject">
+              <p id="p1">Pour ajouter un objet, cliquez sur ce bouton</p>
+              <a href="?p=addObject"><button id="btn-addObject" type="button">Ajouter un objet</button></a>
+            </div>
           </div>
         </div>
 
@@ -53,16 +56,9 @@
             <div class="single-object">
               <p>["nom object"]</p>
             </div>
-            <div class="single-object">
-              <p>["nom object"]</p>
+            <div>
+              <a id="link-cat"href="#">Afficher plus ...</a>
             </div>
-            <div class="single-object">
-              <p>["nom object"]</p>
-            </div>
-            <div class="single-object">
-              <p>["nom object"]</p>
-            </div>
-            
           </div>
       </div>
   </div>

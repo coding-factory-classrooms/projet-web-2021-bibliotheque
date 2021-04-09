@@ -2,23 +2,25 @@
 #container-archive{
     position: relative;
     top: 100px;
-    left: 10%;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(214, 214, 214, 0.562);
 }
 #container-add{
+    position: relative;
+    left: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
+    width: 80%;
     border-radius: 10px;
     margin: 1%;
 }
 h1{
-    font-size: 25px;
+    font-size: 23px;
 }
 #container-addCat{
     margin: 0% 2% 2% 2%;
@@ -28,16 +30,39 @@ h1{
     border-left: 1px solid black;
     width: 75%;
 }
+#addObject{
+    position: relative;
+    left: 20%;
+    top: 5%;
+}
+#btn-addObject{
+    padding: 0.5%;
+    width: 20%;
+    height: 40%;
+    margin-left: 20%;
+    border-radius: 10px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#btn-addObject:hover{
+    -webkit-transform: scale(1.20);
+    -moz-transform: scale(1.20);
+}
+#p1{
+    font-size: 20px;
+}
 .inputData{
-    width: 70%;
+    width: 60%;
     border: none;
     border-bottom:2px solid #8AE3E8;
     margin-right: 2%;
 }
 .inputAdd{
+    padding: 0.5%;
     border: none;
     border-radius: 10px;
-    width: 20%;
+    width: 25%;
     height: 20px;
     margin-left: 3%;
     -webkit-transition: all 0.5s ease;
@@ -54,24 +79,58 @@ h1{
     background-color: white;
     margin: 1%;
     border-radius: 10px;
-    height: 150px;
+    height: 100%;
 }
 #cat-data{
-    width: 20%;
+    width: 19%;
     text-align: center;
 }
 #objects-data{
-    display: flex;
-    flex-direction: row;
-    width: 80%;
+    width: 81%;
     border-left: 1px solid black;
-    overflow-y: scroll;
+    padding: 1%;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 .single-object{
-    width: 20%;
-    height: 80%;
+    display: inline-block;
+    width: 170px;
+    height: 130px;
     border-radius: 10px;
     background-color: rgb(211, 211, 211);
-    margin: 0 0 0 2%;
+    margin: 0 0.5% 1% 0.5%;
     text-align: center;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.single-object:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+}
+#link-cat{
+    position: relative;
+    left: 85%;
+    text-decoration: none;
+    color: black;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+#link-cat:hover{
+    color: #000000;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+#link-cat::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #8AE3E8;
+    transition: width .5s;
+}
+#link-cat:hover::after{
+    width: 12%;
+    color: #8AE3E8;
 }
