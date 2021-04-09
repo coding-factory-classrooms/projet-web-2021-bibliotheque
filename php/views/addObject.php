@@ -60,7 +60,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
     
     <input type="submit" class="registerbtn" value = "Inscription">
     
-    <p><br><a href="?p=main"><- Return</a></p>
+    <p><br><a onclick="history.go(-1);"><- Return</a></p>
   </div>
 </form>
 
