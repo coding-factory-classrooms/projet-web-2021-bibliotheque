@@ -27,6 +27,7 @@ if ($listObjectBeforeFetch != false){
 <!DOCTYPE html>
 <head>
     <script src="https://kit.fontawesome.com/87a0ec3c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/viewCategory.css">
 </head>
 <body>
     <div class="container-obj">
