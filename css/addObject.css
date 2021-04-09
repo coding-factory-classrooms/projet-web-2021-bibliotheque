@@ -1,0 +1,90 @@
+.container{
+    width: 60%;
+    height: 60%;
+}
+
+.container h1{
+    text-align: center;
+    font-size: 150%;
+}
+
+.inputData[type=text],select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #8AE3E8;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.container textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #8AE3E8;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.registerbtn{
+    background-color: #8AE3E8;
+    width: 30%;
+    height: 50%;
+    padding: 2%;
+    margin-top: 7%;
+    margin-left: 35%;
+    border-radius: 6px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    font-family: Limelight;
+}
+
+.registerbtn:hover{
+    background-color: #69acaf;
+    color: white;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+
+.btnr{
+    background-color: #8AE3E8;
+    width: 30%;
+    height: 50%;
+    padding: 2%;
+    margin-top: 7%;
+    margin-left: 35%;
+    border-radius: 6px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    font-family: Limelight;
+}
+
+.btnr:hover{
+    background-color: #69acaf;
+    color: white;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+
+.container p{
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    border: none;
+    margin-right: 2%;
+    width: 13%;
+    margin-top: 10%;
+    text-align: center;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+
+.container p:hover{
+    color: #8AE3E8;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+

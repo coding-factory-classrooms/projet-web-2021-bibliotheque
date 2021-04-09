@@ -16,38 +16,39 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 
 <!doctype html>
 <html lang="fr">
+<link rel="stylesheet" href="css/addObject.css">
 
 <body>
 
 <form action= "php/management/addObjectDB.php">
   <div id="container" class="container">
-    <h1>Add a product to sell</h1>
-    <hr>
+    <h1>Ajout d'objet à une catégorie</h1>
+    
 
-    <label class ="data" for="name"></label>
+    <label class ="data" for="name"><b>Nom</b></label>
     <input class ="inputData" type="text" placeholder="Nom" name="name" id="name" required>
-    <hr>
+  
 
-    <label class ="data" for="image"></label>
+    <label class ="data" for="image"><b>Image</b></label>
     <input class ="inputData" type="text" placeholder="Lien d'une Image (optionel)" name="image" id="image">
-    <hr>
+    
 
-    <label class ="data" for="description"></label>
-    <input class ="inputData" type="text" placeholder="Description" name="description" id="description">
-    <hr>
+    <label class ="data" for="description"><b>Description</b></label>
+    <textarea rows="4" cols="50" name="comment" placeholder="Description.." form="usrform"></textarea>
+   
 
-    <label class ="data" for="category"></label>
+    <label class ="data" for="category"><b>Catégorie</b></label>
     <input class ="inputData" type="text" placeholder="Categorie" name="category" id="category" required>
-    <hr>
+    
 
     <label class ="data" for="tags"><b>Tags</b></label>
-    <input class ="inputData" type="text" name="tags" id="tags">
-    <hr>
+    <input class ="inputData" type="text" placeholder="Tags" name="tags" id="tags" required>
+    
+    
 
     <label class ="data" for="advancement"><b>Avancement</b></label>
     <input class ="inputData" type="text" name="advancement" id="advancement">
-    <hr>
-
+    
     <?php 
     //If Error from the connexion.php, print the error 
     if (isset($_SESSION['error_message'])) {
@@ -57,10 +58,10 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       unset($_SESSION['error_message']);
     }
     ?>
-    
-    <input type="submit" class="registerbtn" value = "Inscription">
-    
-    <p><br><a onclick="history.go(-1);"><- Return</a></p>
+    <input type="submit" class="registerbtn" value = "Confirmer">
+
+    <p><a onclick="history.go(-1);"><- Return</a></p>
+
   </div>
 </form>
 
