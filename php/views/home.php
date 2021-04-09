@@ -14,7 +14,7 @@
                 <br>
                 Avec ses bibliothèques pré-faites, sa possibilité de crééer autant de nouvelles bibliothèques que possible,  les possibilités sont infinies.
             </p>
-            <a href="#">
+            <a href="?p=register">
                 <button id="login" type="button">Je m'inscris</button>
             </a>
         </div>

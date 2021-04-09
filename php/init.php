@@ -13,6 +13,6 @@ $req = $db->query('SELECT U.username FROM user as U');
 $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
 
 //The different status
-$pages = ['home','register','login','stats','main','addCategory','addObject','viewCategory'];
+$pages = ['home','register','login', 'register','stats','main','addCategory','addObject','viewCategory'];
 $del = ['logOut'];
 ?>
