@@ -9,6 +9,15 @@ function console_log( $data ){
     echo '</script>';
 }
 
+function miniTileObject($object){
+    echo '<div class="element-cat id">';
+    echo '<p class="nameObject">'.$object['name'].'</p>';
+    echo '<p class="tagsObject"> Tags: '.$object['tags'].'</p>';
+    echo '<p class="descriptionObject"> Desc: '.$object['description'].'</p>';
+    echo '<p class=advancementObject> advancement <p>';
+    echo '</div>';
+}
+
 $req = $db->query('SELECT U.username FROM user as U');
 $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
 

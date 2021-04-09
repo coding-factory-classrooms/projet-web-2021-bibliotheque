@@ -1,19 +1,27 @@
 <?php
 require_once "php/init.php";
-
-viewCategory(0, $db);
-function viewCategory($index, $db) {
-    //The index of the current category
-
-    $categoryNameBeforeFetch = $db->query('SELECT C.name FROM categorie C WHERE C.numCategorie = '.$index.' and C.numUser = '.$_SESSION['ID'].' ');
-    $categoryName = $categoryNameBeforeFetch->fetch(PDO::FETCH_ASSOC);
-
-    $listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$index.' and I.numUser = '.$_SESSION['ID'].' ');
-    if ($listObjectBeforeFetch != false){
-        $listObject = $listObjectBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
+//Get the index of the category in the url
+if (isset($_GET['c'])) {
+    if ($_GET['c'] != null){
+      $index = $_GET['c'];
     }else {
-        $listObject = [];
+      $index = 0; 
     }
+}else {
+    $index = 0; 
+}
+
+//The index of the current category
+
+$categoryNameBeforeFetch = $db->query('SELECT C.name FROM categorie C WHERE C.numCategorie = '.$index.' and C.numUser = '.$_SESSION['ID'].' ');
+$categoryName = $categoryNameBeforeFetch->fetch(PDO::FETCH_ASSOC);
+
+$listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$index.' and I.numUser = '.$_SESSION['ID'].' ');
+if ($listObjectBeforeFetch != false){
+    $listObject = $listObjectBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
+}else {
+    $listObject = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +53,7 @@ function viewCategory($index, $db) {
             </a>
             <?php
             for ($i=0; $i < count($listObject); $i++){
-                echo '<div class="element-cat id">';
-                echo '<p>'.$listObject[$i]['name'].'</p>';
-                echo '</div>';
+                miniTileObject($listObject[$i]);
             }
             ?>
         </div>
@@ -55,7 +61,3 @@ function viewCategory($index, $db) {
 </body>
 <script src="js/searchbar.js"></script>
 </html>
-
-<?php
-}
-?>
