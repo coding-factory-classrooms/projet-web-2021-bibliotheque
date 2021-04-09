@@ -1,3 +1,17 @@
+<?php 
+//Get the index of the category in the url
+if (isset($_GET['c'])) {
+  if ($_GET['c'] != null){
+    $index = $_GET['c'];
+  }else {
+    $index = -1; 
+  }
+}
+//To compare the index in the DB
+$listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie as C Where C.numUser = '.$_SESSION['ID'].'');
+$listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -44,9 +58,15 @@
     
     <input type="submit" class="registerbtn" value = "Inscription">
     
-    <p><br><a href="?p=main"><- Return</a>.</p>
+    <p><br><a href="?p=main"><- Return</a></p>
   </div>
 </form>
 
 </body>
+<script>
+  if (<?php echo $index ?> != -1){
+    document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
+  }
+</script>
+
 </html>
