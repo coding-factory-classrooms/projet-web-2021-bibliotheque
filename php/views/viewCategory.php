@@ -35,7 +35,7 @@ function viewCategory($index, $db) {
             </div>
         </div>
         <div class="object">
-            <a href="?p=addObject"id="element-cat">
+            <a <?php echo "href=?p=addObject&c=".$index ?> id="element-cat">
                 <div>
                     <br>
                     <br>
