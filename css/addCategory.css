@@ -1,0 +1,77 @@
+/* style page add category */
+#container-archive{
+    position: relative;
+    top: 100px;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 400px;
+    background-color: rgba(214, 214, 214, 0.562);
+}
+#container-add{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    margin: 1%;
+}
+h1{
+    font-size: 25px;
+}
+#container-addCat{
+    margin: 0% 2% 2% 2%;
+    width: 25%;
+}
+#container-addObject{
+    border-left: 1px solid black;
+    width: 75%;
+}
+.inputData{
+    width: 70%;
+    border: none;
+    border-bottom:2px solid #8AE3E8;
+    margin-right: 2%;
+}
+.inputAdd{
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    height: 20px;
+    margin-left: 3%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.inputAdd:hover{
+    -webkit-transform: scale(1.20);
+    -moz-transform: scale(1.20);
+}
+#container-dataExist{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: white;
+    margin: 1%;
+    border-radius: 10px;
+    height: 150px;
+}
+#cat-data{
+    width: 20%;
+    text-align: center;
+}
+#objects-data{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    border-left: 1px solid black;
+    overflow-y: scroll;
+}
+.single-object{
+    width: 20%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+    margin: 0 0 0 2%;
+    text-align: center;
+}
