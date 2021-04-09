@@ -6,6 +6,8 @@ if (isset($_GET['c'])) {
   }else {
     $index = -1; 
   }
+}else {
+  $index = -1; 
 }
 //To compare the index in the DB
 $listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie as C Where C.numUser = '.$_SESSION['ID'].'');
