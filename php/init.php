@@ -14,7 +14,7 @@ function miniTileObject($object){
     echo '<p class="nameObject">'.$object['name'].'</p>';
     echo '<p class="tagsObject"> Tags: '.$object['tags'].'</p>';
     echo '<p class="descriptionObject"> Desc: '.$object['description'].'</p>';
-    echo '<p class=advancementObject> advancement <p>';
+    echo '<p class=advancementObject> advancement: <p>';
     echo '</div>';
 }
 
