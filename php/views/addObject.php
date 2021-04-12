@@ -9,9 +9,23 @@ if (isset($_GET['c'])) {
 } else {
   $index = -1;
 }
+//Get the index of the object to modify in the url
+$currentObject = null;
+if (isset($_GET['o'])) {
+  if ($_GET['o'] != null) {
+    $indexObj = $_GET['o'];  
+    $currentObjectBeforeFetch = $db->query('SELECT * FROM item as O WHERE O.numUser = ' . $_SESSION['ID'] . ' AND O.numCategorie = '.$index.' AND O.numObject = '.$indexObj.'');
+    $currentObject = $currentObjectBeforeFetch->fetch(PDO::FETCH_ASSOC);
+  } else {
+    $indexObj = -1;
+  }
+} else {
+  $indexObj = -1;
+}
 //To compare the index in the DB
 $listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name, C.advancement FROM categorie as C Where C.numUser = ' . $_SESSION['ID'] . ' Order By C.numCategorie');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!doctype html>
@@ -34,7 +48,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <input class="inputData" type="text" placeholder="Lien d'une Image (optionel)" name="image" id="image">
 
       <label class="data" for="description"><b>Description</b></label>
-      <textarea class="inputData" rows="4" cols="50" name="description" placeholder="Description.."></textarea>
+      <textarea class="inputData" rows="4" cols="50" name="description" placeholder="Description.." id="description"></textarea>
 
       <label class="data" for="category"><b>Catégorie</b></label>
       <input class="inputData" list="list" type="text" placeholder="Categorie" name="category" id="category" required>
@@ -54,7 +68,9 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <?php 
         if ($index != -1){
           //unserialize(base64_decode($data));
-          if (count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0){
+          $hasAdvancement = count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0;
+          
+          if ($hasAdvancement){
             echo '<label class="data" for="advancement"><b>Avancement</b></label>',
             '<input class="inputData" type="text" name="advancement" id="advancement">';
           }
@@ -71,12 +87,34 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         unset($_SESSION['error_message']);
       }
       ?>
-      <input type="submit" class="registerbtn" value="Confirmer">
+      
+      <input type="submit" class="registerbtn hidden" value="Confirmer" id="confirm">
+      <a onclick="history.go(-1);"><button class="registerbtn" type="button">Annuler</button></a> 
 
-       </div> </form> </body> <script>
-            if (<?php echo $index ?> != -1){
-            document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
-            }
-            </script>
+    </div> 
+  </form> 
+</body> 
+<script>
+  
+if (<?php echo $index ?> != -1){
+  
+  document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
+  
+  if (<?php echo $currentObject != null ?>){
+    document.getElementsByTagName("h1")[0].innerHTML = "Modifier l'objet";
+    document.getElementById("confirm").value = "Modifier"
+
+    document.getElementById("name").value = "<?php echo $currentObject['name'] ?>";
+    document.getElementById("image").value = "<?php echo $currentObject['image'] ?>";
+    document.getElementById("description").value = "<?php echo $currentObject['description'] ?>";
+    document.getElementById("tags").value = "<?php echo $currentObject['tags'] ?>";
+
+    "<?php echo $hasAdvancement?>"==true? hasAdvancement = true: hasAdvancement = false;
+    if (hasAdvancement){
+      document.getElementById("advancement").value = "<?php echo $currentObject['advancement'] ?>";
+    }
+  }
+}
+</script>
 
 </html>

@@ -114,26 +114,7 @@ nav{
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
-/*{
-    background-color: #b42935;
-    color: white;
-    width: 50%;
-    height: 70%;
-    padding: 2%;
-    border-radius: 6px;
-    border: none;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    animation-duration: 1.5s;
-    animation-name: slideMenu;
-    font-family: Limelight;
-}
-#btn-deconnexion:hover{
-    background-color: #69acaf;
-    color: white;
-    -webkit-transform: scale(1.10);
-    -moz-transform: scale(1.10);
-}*/
+
 @keyframes slideMenu {
     from {
       margin-right: -100%;
@@ -185,4 +166,6 @@ h3{
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
+
+.hidden {display: none !important;}
 /* end home */

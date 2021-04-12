@@ -10,12 +10,16 @@ function console_log( $data ){
 }
 
 function miniTileObject($object){
-    echo '<div class="element-cat id">';
-    echo '<p class="nameObject">'.$object['name'].'</p>';
-    echo '<p class="tagsObject"> Tags: '.$object['tags'].'</p>';
-    echo '<p class="descriptionObject"> Desc: '.$object['description'].'</p>';
-    echo '<p class=advancementObject> advancement: <p>';
-    echo '</div>';
+    echo 
+     '<div class="element-cat id">',
+     '<a href="?p=addObject&c='.$object['numCategorie'].'&o='.$object['numObject'].'">',
+     '<p class="nameObject">'.$object['name'].'</p>',
+     '<p class="tagsObject"> Tags: '.$object['tags'].'</p>',
+     '<p class="descriptionObject"> Desc: '.$object['description'].'</p>',
+     '<p class=advancementObject> advancement: <p>',
+     '</a>',
+     '</div>';
+     
 }
 
 function verifLogin(){
