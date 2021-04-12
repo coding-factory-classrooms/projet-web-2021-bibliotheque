@@ -77,5 +77,4 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       </div>
   </div>
 </body>
-</body>
 </html>
