@@ -41,20 +41,20 @@ if ($listObjectBeforeFetch != false){
             <div id="side-right">
                 <input class="input" type="text" placeholder="Search.." id="searchBar" onkeyup="search()">
                 <button class="btn" id="sort" type="button">Trier par ...</button>
-                <a class="search btn" href="#">
-                    <button class="btn" id="create-cat" type="button"><i class="fa fa-plus"></i></button>
+                <a class="search btn">
+                    <button class="btn" id="create-cat" type="button" onClick="changePrinter()"><i id="orderBy" class="fa fa-plus"></i></button>
                 </a>
             </div>
         </div>
         <div id="object">
-            <a <?php echo "href=?p=addObject&c=".$index ?> class="element-cat">
-                <div>
+            <div class="element-cat">
+                <a <?php echo "href=?p=addObject&c=".$index ?>>
                     <br>
                     <br>
                     <br>
                     <i class="fa fa-plus"> Ajouter un Objet</i>
-                </div>
-            </a>
+                </a>
+            </div>
             <?php
             for ($i=0; $i < count($listObject); $i++){
                 miniTileObject($listObject[$i]);
@@ -63,5 +63,36 @@ if ($listObjectBeforeFetch != false){
         </div>
     </div>
 </body>
+<script>
+function changePrinter(){
+//
+    orderBy_class = document.getElementById("orderBy").classList;
+    orderBy_class.toggle("fas");
+    orderBy_class.toggle("fa");
+    orderBy_class.toggle("fa-grip-lines");
+    orderBy_class.toggle("fa-plus");
+    orderChanger();
+}
+
+function orderChanger(){
+    orderBy = document.getElementById("orderBy");
+    objectContainer = document.getElementById("object");
+    objects = Array.from(objectContainer.getElementsByTagName("div"));
+
+    console.log(objects);
+
+    if (orderBy.classList[1] == "fa-plus"){
+        objects.forEach(object => {
+            object.classList.add("element-cat");
+            //object.classList.remove("");
+        })
+    }else{
+        objects.forEach(object => {
+            //object.classList.add("");
+            object.classList.remove("element-cat");
+        })
+    }
+}
+</script>
 <script src="js/searchbar.js"></script>
 </html>
