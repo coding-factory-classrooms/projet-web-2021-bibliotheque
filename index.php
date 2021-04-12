@@ -23,7 +23,7 @@ partials_header($page);
 if (isset($_GET['delete'])){
     if (in_array($_GET['delete'],$del)){
         require_once 'php/management/'.$_GET['delete'].'.php';
-        header('Location: ?p=login');
+        header('Location: ?p=home');
         die;
     }
 }

@@ -19,8 +19,8 @@ function miniTileObject($object){
 }
 
 function verifLogin(){
-    if ($_SESSION["ID"] == null){
-        header('Location: ../../'.'?p=login');
+    if ($_SESSION == null){
+        header('Location: ?p=login');
     }
 }
 
