@@ -6,7 +6,7 @@ verifLogin();
 
 <!doctype html>
 <html lang="fr">
-<link rel="stylesheet" href="css/addCategory.css">
+<link rel="stylesheet" href="css/addCat1.css">
 <?php
 $listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie C WHERE C.numUser = '.$_SESSION['ID'].' ');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
@@ -48,9 +48,10 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           echo '<div id="container-dataExist">';
           echo '<div id="cat-data">';
           echo '<p>'.$listCategory[$i]['name'].'</p>';
+          echo '<a href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'" ><button class="btn-linkCat" type="button">Afficher plus ...</button></a>';
+          echo '<button class="btn-deleteCat" type="submit">Supprimer</button>';
           echo '</div>';
           echo '<div id="objects-data">';
-
           $listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$listCategory[$i]['numCategorie'].' and I.numUser = '.$_SESSION['ID'].' ');
           if ($listObjectBeforeFetch != false){
             $listObject = $listObjectBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
@@ -70,7 +71,6 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
             echo '</div>';
           }
           echo '<div>';
-          echo '<a id="link-cat"href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'">Afficher plus ...</a>';
           echo '</div></div></div>';
         }
         ?>

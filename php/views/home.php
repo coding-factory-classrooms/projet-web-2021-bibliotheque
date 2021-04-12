@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php require_once "php/init.php";?>
-
+<link rel="stylesheet" href="home1.css">
 <body>
     <h3>Archivez vos Envies !</h3>
         <div class="container">
