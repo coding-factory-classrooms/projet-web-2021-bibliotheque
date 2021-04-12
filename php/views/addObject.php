@@ -36,10 +36,11 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <label class="data" for="category"><b>Catégorie</b></label>
       <input class="inputData" list="list" type="text" placeholder="Categorie" name="category" id="category" required>
       <datalist id="list">
-        <option value="Film">
-        <option value="Série">
-        <option value="Musique">
-        <option value="Ma Categorie">
+        <?php
+        for ($i=0;$i<count($listCategory);$i++){
+          echo "<option value=".$listCategory[$i]['name'].">";
+        }
+        ?>
       </datalist>
 
       <label class="data" for="tags"><b>Tags</b></label>
