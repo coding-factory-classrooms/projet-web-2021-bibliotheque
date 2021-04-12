@@ -1,3 +1,9 @@
+<?php
+require_once "php/init.php";
+
+verifLogin();
+?>
+
 <!doctype html>
 <html lang="fr">
 <link rel="stylesheet" href="css/addCategory.css">

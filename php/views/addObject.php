@@ -34,7 +34,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 
 
       <label class="data" for="description"><b>Description</b></label>
-      <textarea class="inputData" rows="4" cols="50" name="Description" placeholder="Description.."></textarea>
+      <textarea class="inputData" rows="4" cols="50" name="description" placeholder="Description.."></textarea>
 
 
       <label class="data" for="category"><b>Catégorie</b></label>
@@ -48,7 +48,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 
 
       <label class="data" for="tags"><b>Tags</b></label>
-      <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags" required>
+      <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
 
 
 

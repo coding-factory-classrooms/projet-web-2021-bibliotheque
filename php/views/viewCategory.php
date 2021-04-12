@@ -1,6 +1,9 @@
 <?php
 require_once "php/init.php";
 //Get the index of the category in the url
+
+verifLogin();
+
 if (isset($_GET['c'])) {
     if ($_GET['c'] != null){
       $index = $_GET['c'];

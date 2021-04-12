@@ -25,7 +25,7 @@
             ?>
                 <div class="error"><?php echo $_SESSION['error_message']; ?></div>
             <?php
-                    unset($_SESSION['error_message']);
+                unset($_SESSION['error_message']);
             }
             ?>
             <input type="submit" value="Connexion">

@@ -1,5 +1,12 @@
 <?php
 function partials_header($page) {
+    if ($_SESSION['ID']==null){
+        $btnMessage = 'Connection';
+        $btnDirrection = '?p=login';
+    }else{
+        $btnMessage = 'Deconnection';
+        $btnDirrection = '?p=logout';
+    }
 ?>
 <!DOCTYPE html>
 <head>
@@ -25,8 +32,8 @@ function partials_header($page) {
                 
             </div>
             <div class="block block3" id="connexion">
-                <a href="?p=login">
-                    <button id="btn-connexion" type="button">Connexion</button>
+                <a href="<?php echo $btnDirrection ?>">
+                    <button id="btn-connexion" type="button"><?php echo "".$btnMessage."" ?></button>
                 </a>
             </div>
         </nav>

@@ -18,6 +18,12 @@ function miniTileObject($object){
     echo '</div>';
 }
 
+function verifLogin(){
+    if ($_SESSION["ID"] == null){
+        header('Location: ../../'.'?p=login');
+    }
+}
+
 $req = $db->query('SELECT U.username FROM user as U');
 $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
 
