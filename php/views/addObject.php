@@ -88,8 +88,8 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       }
       ?>
       
-      <input type="submit" class="registerbtn hidden" value="Confirmer" id="confirm">
-      <a onclick="history.go(-1);"><button class="registerbtn" type="button">Annuler</button></a> 
+      <input type="submit" class="registerbtn " value="Confirmer" id="confirm">
+      <a onclick="history.go(-1);"><button class="registerbtn hidden" type="button">Annuler</button></a> 
 
     </div> 
   </form> 
