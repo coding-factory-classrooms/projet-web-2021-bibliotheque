@@ -1,10 +1,10 @@
 <?php
 function partials_header($page) {
     if ($_SESSION==null){
-        $btnMessage = 'Connection';
+        $btnMessage = 'Connexion';
         $btnDirrection = '?p=login';
     }else{
-        $btnMessage = 'Deconnection';
+        $btnMessage = 'Deconnexion';
         $btnDirrection = '?delete=logOut';
     }
 ?>

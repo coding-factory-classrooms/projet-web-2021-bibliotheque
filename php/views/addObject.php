@@ -24,18 +24,14 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
     <div id="container" class="container">
       <h1>Ajout d'objet à une catégorie</h1>
 
-
       <label class="data" for="name"><b>Nom</b></label>
       <input class="inputData" type="text" placeholder="Nom" name="name" id="name" required>
-
 
       <label class="data" for="image"><b>Image</b></label>
       <input class="inputData" type="text" placeholder="Lien d'une Image (optionel)" name="image" id="image">
 
-
       <label class="data" for="description"><b>Description</b></label>
       <textarea class="inputData" rows="4" cols="50" name="description" placeholder="Description.."></textarea>
-
 
       <label class="data" for="category"><b>Catégorie</b></label>
       <input class="inputData" list="list" type="text" placeholder="Categorie" name="category" id="category" required>
@@ -46,11 +42,8 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         <option value="Ma Categorie">
       </datalist>
 
-
       <label class="data" for="tags"><b>Tags</b></label>
       <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
-
-
 
       <label class="data" for="advancement"><b>Avancement</b></label>
       <input class="inputData" type="text" name="advancement" id="advancement">
@@ -67,10 +60,15 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <input type="submit" class="registerbtn" value="Confirmer">
 
       <p><a onclick="history.go(-1);">
-          <- Return</a> </p> </div> </form> </body> <script>
-            if (<?php echo $index ?> != -1){
-            document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
-            }
-            </script>
+          <- Return</a> 
+      </p>
+    </div> 
+  </form> 
+</body> 
+<script>
+  if (<?php echo $index ?> != -1){
+    document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
+  }
+</script>
 
 </html>

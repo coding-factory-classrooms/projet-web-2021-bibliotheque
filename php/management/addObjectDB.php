@@ -57,7 +57,7 @@ if ($resultDB){
         $req->execute();
     
         echo "\n Envoie réussi";
-        handleError("Success !");
+        echo "<script type='text/javascript'> history.go(-2); </script>";
         die;
     }
     else {
