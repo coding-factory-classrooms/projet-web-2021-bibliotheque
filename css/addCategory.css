@@ -1,4 +1,7 @@
 /* style page add category */
+body{
+    overflow-x: hidden;
+}
 #container-archive{
     position: relative;
     top: 100px;
