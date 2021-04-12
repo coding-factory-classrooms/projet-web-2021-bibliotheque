@@ -4,7 +4,7 @@ require_once "../init.php";
 //Print an error when a value is not correct
 function handleError($message) {
     $_SESSION['error_message'] = $message;
-    header('Location: ../../'.'?p=addCategory');
+    header('Location: ../../'.'?p=archive');
     die();
 }
 $url = parse_url($_SERVER['REQUEST_URI']);

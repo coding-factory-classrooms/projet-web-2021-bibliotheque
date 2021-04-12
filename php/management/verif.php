@@ -32,7 +32,7 @@ else{
         $_SESSION['ID'] = (int) $resultDB['numUser'];
         $_SESSION['Username'] = $resultDB['username'];
 
-        header('Location: ../../'.'?p=addCategory');
+        header('Location: ../../'.'?p=archive');
         die();
     }
 

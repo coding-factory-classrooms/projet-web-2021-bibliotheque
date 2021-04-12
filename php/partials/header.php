@@ -29,7 +29,7 @@ function partials_header($page) {
                 </a>
             </div>
             <div class="block block2" id="cat">
-                <p id="list-link"><a class="link" href="?p=addCategory">Archive </a>&ensp; | &ensp;<a class="link" href="#"> Statistique</a>
+                <p id="list-link"><a class="link" href="?p=archive">Archive </a>&ensp; | &ensp;<a class="link" href="#"> Statistique</a>
                 </p>
                 
             </div>
