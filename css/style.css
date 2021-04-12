@@ -16,6 +16,8 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow-x: hidden;
+
 }
 /* end general style*/
 
@@ -121,6 +123,12 @@ nav{
     to {
       width: 50%;
     }
+}
+#btn-deconnexion{
+    background-color: #b42935;
+    color: white;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
 }
 /*end style header*/
 
