@@ -1,6 +1,6 @@
 /*general style*/
 @font-face {
-    font-family: "Limlight";
+    font-family: "Limelight";
     src: url("../asset/Limelight/Limelight-Regular.ttf");
   }
 
@@ -17,7 +17,6 @@ body{
     -o-background-size: cover;
     background-size: cover;
     overflow-x: hidden;
-
 }
 /* end general style*/
 
@@ -29,14 +28,11 @@ nav{
     background-color: rgb(255, 255, 255);
     padding: 1%;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    top: 0;left: 0;right: 0;z-index: 1;
+    
 }
-.block1{
-    width: 15%;
-}
+.block1{width: 15%;}.block2{width: 60%;}.block3{width: 25%;}
+
 #logo{
     margin-left: 2%;  
 }
@@ -48,11 +44,6 @@ nav{
 #img_logo:hover{
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
-}
-
-
-.block2{
-    width: 60%;
 }
 #cat{
     margin-top: 0.4%;
@@ -86,16 +77,12 @@ nav{
     color: #8AE3E8;
 }
 
-
-.block3{
-    width: 25%;
-}
 #connexion{
     text-align: right;
     margin-top: 1%;
     margin-right: 2%;
 }
-#btn-connexion{
+#btn-deconnexion{
     background-color: #be333a;
     width: 50%;
     height: 70%;
@@ -108,12 +95,45 @@ nav{
     animation-name: slideMenu;
     font-family: Limelight;
 }
-#btn-connexion:hover{
-    background-color: #69acaf;
+#btn-connexion{
+    background-color: #8AE3E8;
+    width: 50%;
+    height: 70%;
+    padding: 2%;
+    border-radius: 6px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    animation-duration: 1.5s;
+    animation-name: slideMenu;
+    font-family: Limelight;
+}
+#btn-connexion:hover, #btn-deconnexion:hover{
+    background-color: #747777;
     color: white;
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
+/*{
+    background-color: #b42935;
+    color: white;
+    width: 50%;
+    height: 70%;
+    padding: 2%;
+    border-radius: 6px;
+    border: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    animation-duration: 1.5s;
+    animation-name: slideMenu;
+    font-family: Limelight;
+}
+#btn-deconnexion:hover{
+    background-color: #69acaf;
+    color: white;
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}*/
 @keyframes slideMenu {
     from {
       margin-right: -100%;
@@ -123,12 +143,6 @@ nav{
     to {
       width: 50%;
     }
-}
-#btn-deconnexion{
-    background-color: #b42935;
-    color: white;
-    -webkit-transform: scale(1.10);
-    -moz-transform: scale(1.10);
 }
 /*end style header*/
 

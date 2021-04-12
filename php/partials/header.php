@@ -3,16 +3,18 @@ function partials_header($page) {
     if ($_SESSION==null){
         $btnMessage = 'Connexion';
         $btnDirrection = '?p=login';
+        $btnId = "btn-connexion";
     }else{
         $btnMessage = 'Deconnexion';
         $btnDirrection = '?delete=logOut';
+        $btnId = "btn-deconnexion";
     }
 ?>
 <!DOCTYPE html>
 <head>
     <html lang="fr">
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -33,7 +35,7 @@ function partials_header($page) {
             </div>
             <div class="block block3" id="connexion">
                 <a href="<?php echo $btnDirrection ?>">
-                    <button id="btn-connexion" type="button"><?php echo "".$btnMessage."" ?></button>
+                    <button id="<?php echo "".$btnId.""; ?>" type="button"><?php echo "".$btnMessage.""; ?></button>
                 </a>
             </div>
         </nav>
