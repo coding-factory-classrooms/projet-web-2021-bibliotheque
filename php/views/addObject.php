@@ -10,7 +10,7 @@ if (isset($_GET['c'])) {
   $index = -1;
 }
 //To compare the index in the DB
-$listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie as C Where C.numUser = ' . $_SESSION['ID'] . '');
+$listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name, C.advancement FROM categorie as C Where C.numUser = ' . $_SESSION['ID'] . ' Order By C.numCategorie');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -42,15 +42,25 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         <?php
         for ($i=0;$i<count($listCategory);$i++){
           echo "<option value=".$listCategory[$i]['name'].">";
+          
         }
+        
         ?>
       </datalist>
 
       <label class="data" for="tags"><b>Tags</b></label>
       <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
 
-      <label class="data" for="advancement"><b>Avancement</b></label>
-      <input class="inputData" type="text" name="advancement" id="advancement">
+      <?php 
+        if ($index != -1){
+          //unserialize(base64_decode($data));
+          if (count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0){
+            echo '<label class="data" for="advancement"><b>Avancement</b></label>',
+            '<input class="inputData" type="text" name="advancement" id="advancement">';
+          }
+        }
+      ?>
+      
 
       <?php
       //If Error from the connexion.php, print the error 
