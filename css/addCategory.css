@@ -86,10 +86,10 @@ h1{
     width: 19%;
     text-align: center;
 }
+
 #objects-data{
     width: 81%;
     border-left: 1px solid black;
-    padding: 1%;
 }
 ::-webkit-scrollbar {
     width: 0px;

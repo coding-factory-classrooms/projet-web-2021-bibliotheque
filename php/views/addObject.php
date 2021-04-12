@@ -16,12 +16,15 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 
 <!doctype html>
 <html lang="fr">
-<link rel="stylesheet" href="css/addObject.css">
+<link rel="stylesheet" href="css/addObjectpage.css">
 
 <body>
 
   <form action="php/management/addObjectDB.php">
     <div id="container" class="container">
+
+      <a onclick="history.go(-1);"><button class="btnclose" type="button">X</button></a> 
+
       <h1>Ajout d'objet à une catégorie</h1>
 
       <label class="data" for="name"><b>Nom</b></label>
@@ -60,16 +63,10 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       ?>
       <input type="submit" class="registerbtn" value="Confirmer">
 
-      <p><a onclick="history.go(-1);">
-          <- Return</a> 
-      </p>
-    </div> 
-  </form> 
-</body> 
-<script>
-  if (<?php echo $index ?> != -1){
-    document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
-  }
-</script>
+       </div> </form> </body> <script>
+            if (<?php echo $index ?> != -1){
+            document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
+            }
+            </script>
 
 </html>

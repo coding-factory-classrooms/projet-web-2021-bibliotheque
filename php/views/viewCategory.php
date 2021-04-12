@@ -36,6 +36,9 @@ if ($listObjectBeforeFetch != false){
     <div class="container-obj">
         <div class="search-obj">
             <div id="side-left">
+                <a onclick="history.go(-1);">
+                    <button class="clos" id="btnn" type="button"><- Retour</button>
+                </a> 
                 <h2 id="categoryName"><?php echo $categoryName['name'] ?></h2>
             </div>
             <div id="side-right">

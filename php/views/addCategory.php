@@ -6,7 +6,7 @@ verifLogin();
 
 <!doctype html>
 <html lang="fr">
-<link rel="stylesheet" href="css/addCategory.css">
+<link rel="stylesheet" href="css/addCat.css">
 <?php
 $listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie C WHERE C.numUser = '.$_SESSION['ID'].' ');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
