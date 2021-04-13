@@ -50,32 +50,25 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <label class="data" for="description"><b>Description</b></label>
       <textarea class="inputData" rows="4" cols="50" name="description" placeholder="Description.." id="description"></textarea>
 
-      <label class="data" for="category"><b>Catégorie</b></label>
-      <input class="inputData" list="list" type="text" placeholder="Categorie" name="category" id="category" required>
-      <datalist id="list">
-        <?php
-        for ($i=0;$i<count($listCategory);$i++){
-          echo "<option value=".$listCategory[$i]['name'].">";
-        }
-        
-        ?>
-      </datalist>
+      <div id="categoryContainer">
+        <label class="data" for="category"><b>Catégorie</b></label>
+        <input class="inputData" list="list" type="text" placeholder="Categorie" name="category" id="category" required>
+        <datalist id="list">
+          <?php
+          for ($i=0;$i<count($listCategory);$i++){
+            echo "<option value=".$listCategory[$i]['name'].">";
+          }
+          ?>
+        </datalist>
+      </div>
 
       <label class="data" for="tags"><b>Tags</b></label>
       <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
-
-      <?php 
-        if ($index != -1){
-          //unserialize(base64_decode($data));
-          $hasAdvancement = count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0;
-          
-          if ($hasAdvancement){
-            echo '<label class="data" for="advancement"><b>Avancement</b></label>',
-            '<input class="inputData" type="text" name="advancement" id="advancement">';
-          }
-        }
-      ?>
-
+      
+      <div class="hidden" id="advancementContainer">
+        <label class="data" for="advancement"><b>Avancement</b></label>
+        <input class="inputData" type="text" name="advancement" id="advancement">
+      </div>
       <?php
       //If Error from the connexion.php, print the error 
       if (isset($_SESSION['error_message'])) {
@@ -86,7 +79,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       }
       ?>      
 
-      <input class="hidden" name="currentObject" value="<?php echo $currentObject["numObject"],$currentObject["numCategorie"] ?>" id="currentObject">
+      <input class="hidden" name="currentObject" value="<?php echo ''.$currentObject["numCategorie"].','.$currentObject["numObject"].'' ?>" id="currentObject">
 
       <div id="btn-object">
         <div id="btn-reset">
@@ -97,12 +90,19 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           <input type="submit" class="btn-deleteObject hidden annim" value="Supprimer" name="submit" id="suppr">
         </div>
       </div>
-
     </div> 
   </form> 
 </body> 
 <script>
-  
+  <?php 
+    if ($index != -1){
+      $hasAdvancement = count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0;
+          
+      if ($hasAdvancement){
+        echo "document.getElementById('advancementContainer').classList.remove('hidden')";
+      }
+    }
+  ?>
 if (<?php echo $index ?> != -1){
   
   document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
@@ -117,13 +117,13 @@ if (<?php echo $index ?> != -1){
     document.getElementById("tags").value = "<?php echo $currentObject['tags'] ?>";
     document.getElementById("undo").classList.remove("hidden");
     document.getElementById("suppr").classList.remove("hidden");
-    document.getElementById("category").classList.add("hidden")
+    document.getElementById("categoryContainer").classList.add("hidden");
 
-    "<?php echo $hasAdvancement?>"==true? hasAdvancement = true: hasAdvancement = false;
-    if (hasAdvancement){
+    if (<?php echo json_encode($hasAdvancement); ?>==true){
       document.getElementById("advancement").value = "<?php echo $currentObject['advancement'] ?>";
     }
   }
+
 }
 </script>
 

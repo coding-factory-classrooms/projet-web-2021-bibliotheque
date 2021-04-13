@@ -70,17 +70,39 @@ if ($resultDB){
             break;
 
         case "Modifier":
+            $currentObject = explode(",", $result["currentObject"]);
             if (isset($result['advancement'])){ $adv = $result["advancement"];} 
             else { $adv = ""; }
 
             $req = $db->prepare('UPDATE item SET 
                 name="'.$result["name"].'", image="'.$result["image"].'", description="'.$result["description"].'", tags="'.$result["tags"].'", advancement="'.$adv.'"
-                WHERE numUser = '.$_SESSION['ID'].' AND numCategorie = '.(int)$result['currentObject'][0].' AND numObject = '.(int)$result['currentObject'][1].'');
+                WHERE numUser = '.$_SESSION['ID'].' AND numCategorie = '.(int)$currentObject[0].' AND numObject = '.(int)$currentObject[1].'');
             $req->execute();
             echo "<script type='text/javascript'> history.go(-2); </script>";
             break;
             
         case "Supprimer":
+            $currentObject = explode(",", $result["currentObject"]);
+            var_dump((int)$currentObject[1]);
+            $req = $db->prepare('DELETE FROM item 
+                WHERE numUser='.$_SESSION['ID'].' AND numCategorie='.(int)$currentObject[0].' AND numObject='.(int)$currentObject[1].'');
+            $req->execute();
+
+            $req = $db->query('SELECT numObject, numCategorie FROM item 
+                WHERE numUser='.$_SESSION['ID'].' AND numCategorie='.(int)$currentObject[0].' AND numObject >'.(int)$currentObject[1].'');
+            $listObjectmadeAfter = $req->fetchAll(PDO::FETCH_ASSOC);
+            
+            var_dump($listObjectmadeAfter);
+
+            if ($listObjectmadeAfter != false){
+                foreach($listObjectmadeAfter as $object){
+                    $newIndex = $object['numObject']-1;
+                    $req = $db->prepare('UPDATE item SET numObject='.$newIndex.' WHERE numUser='.$_SESSION['ID'].' AND 
+                            numCategorie = '.$object['numCategorie'].' AND numObject = '.$object['numObject'].'');
+                    $req->execute();
+                }
+            }
+            echo "<script type='text/javascript'> history.go(-2); </script>";
             break;
     }
 }
