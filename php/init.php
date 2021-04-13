@@ -33,5 +33,5 @@ $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
 
 //The different status
 $pages = ['home','register','login','stats','main','archive','addObject','viewCategory'];
-$del = ['logOut'];
+$del = ['logOut', 'delCategory'];
 ?>

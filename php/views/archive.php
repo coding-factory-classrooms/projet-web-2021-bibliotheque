@@ -50,7 +50,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           echo '<p>'.$listCategory[$i]['name'].'</p>';
           echo '<a href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'" ><button class="btn-linkCat" type="button">Afficher plus ...</button></a>';
           echo '<button class="btn-Cat modify" type="submit">Modifier</button>';
-          echo '<button class="btn-Cat delete" type="submit">Supprimer</button>';
+          echo '<a href="?p=deleteCategory&c='.$listCategory[$i]['numCategorie'].'"><button class="btn-Cat delete" type="submit">Supprimer</button></a>';
           echo '</div>';
           echo '<div id="objects-data">';
           $listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$listCategory[$i]['numCategorie'].' and I.numUser = '.$_SESSION['ID'].' ');

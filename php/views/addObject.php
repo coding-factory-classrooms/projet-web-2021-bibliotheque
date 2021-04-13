@@ -111,6 +111,7 @@ if (<?php echo $index ?> != -1){
     document.getElementsByTagName("h1")[0].innerHTML = "Modifier l'objet";
     document.getElementById("confirm").value = "Modifier";
 
+//if we click on an existant item, we have to fill all the cointainer with data
     document.getElementById("name").value = "<?php echo $currentObject['name'] ?>";
     document.getElementById("image").value = "<?php echo $currentObject['image'] ?>";
     document.getElementById("description").value = "<?php echo $currentObject['description'] ?>";

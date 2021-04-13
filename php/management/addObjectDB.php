@@ -64,16 +64,20 @@ if ($resultDB){
                 die;
             }
             else {
-                echo 'Bad noun !';
+                echo 'Bad name !';
                 handleError("Nom d'objet déjà utilisé.");
             }
             break;
 
         case "Modifier":
+            //To modify an item
             $currentObject = explode(",", $result["currentObject"]);
+
+            //Because there some problems if result["advancement"] is always visible
             if (isset($result['advancement'])){ $adv = $result["advancement"];} 
             else { $adv = ""; }
 
+            //Modify all value to make sure we lose nothing new
             $req = $db->prepare('UPDATE item SET 
                 name="'.$result["name"].'", image="'.$result["image"].'", description="'.$result["description"].'", tags="'.$result["tags"].'", advancement="'.$adv.'"
                 WHERE numUser = '.$_SESSION['ID'].' AND numCategorie = '.(int)$currentObject[0].' AND numObject = '.(int)$currentObject[1].'');
@@ -83,16 +87,16 @@ if ($resultDB){
             
         case "Supprimer":
             $currentObject = explode(",", $result["currentObject"]);
-            var_dump((int)$currentObject[1]);
+            //We delete the current object
             $req = $db->prepare('DELETE FROM item 
                 WHERE numUser='.$_SESSION['ID'].' AND numCategorie='.(int)$currentObject[0].' AND numObject='.(int)$currentObject[1].'');
             $req->execute();
 
+            //Then, we decrement by 1 all the item that has been created after, to make sure all the item is between 0 and n-1, which represente the
+            //number of items.
             $req = $db->query('SELECT numObject, numCategorie FROM item 
                 WHERE numUser='.$_SESSION['ID'].' AND numCategorie='.(int)$currentObject[0].' AND numObject >'.(int)$currentObject[1].'');
             $listObjectmadeAfter = $req->fetchAll(PDO::FETCH_ASSOC);
-            
-            var_dump($listObjectmadeAfter);
 
             if ($listObjectmadeAfter != false){
                 foreach($listObjectmadeAfter as $object){
