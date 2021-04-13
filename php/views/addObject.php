@@ -56,7 +56,6 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         <?php
         for ($i=0;$i<count($listCategory);$i++){
           echo "<option value=".$listCategory[$i]['name'].">";
-          
         }
         
         ?>
@@ -76,7 +75,6 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           }
         }
       ?>
-      
 
       <?php
       //If Error from the connexion.php, print the error 
@@ -86,10 +84,13 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <?php
         unset($_SESSION['error_message']);
       }
-      ?>
-      
-      <input type="submit" class="registerbtn " value="Confirmer" id="confirm">
-      <a onclick="history.go(-1);"><button class="registerbtn hidden" type="button">Annuler</button></a> 
+      ?>      
+
+      <input class="hidden" name="currentObject" value="<?php echo $currentObject["numObject"],$currentObject["numCategorie"] ?>" id="currentObject">
+
+      <input type="submit" class="registerbtn" value="Confirmer" name="submit" id="confirm">
+      <input type="submit" class="registerbtn hidden" value="Supprimer" name="submit" id="suppr">
+      <a onclick="history.go(-1);"><button class="registerbtn hidden" type="button" id='undo'>Annuler</button></a>
 
     </div> 
   </form> 
@@ -99,15 +100,18 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 if (<?php echo $index ?> != -1){
   
   document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
-  
-  if (<?php echo $currentObject != null ?>){
+
+  if (<?php echo json_encode($currentObject)?> != null){
     document.getElementsByTagName("h1")[0].innerHTML = "Modifier l'objet";
-    document.getElementById("confirm").value = "Modifier"
+    document.getElementById("confirm").value = "Modifier";
 
     document.getElementById("name").value = "<?php echo $currentObject['name'] ?>";
     document.getElementById("image").value = "<?php echo $currentObject['image'] ?>";
     document.getElementById("description").value = "<?php echo $currentObject['description'] ?>";
     document.getElementById("tags").value = "<?php echo $currentObject['tags'] ?>";
+    document.getElementById("undo").classList.remove("hidden");
+    document.getElementById("suppr").classList.remove("hidden");
+    document.getElementById("category").classList.add("hidden")
 
     "<?php echo $hasAdvancement?>"==true? hasAdvancement = true: hasAdvancement = false;
     if (hasAdvancement){
