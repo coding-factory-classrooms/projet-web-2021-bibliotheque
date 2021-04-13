@@ -100,10 +100,10 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 if (<?php echo $index ?> != -1){
   
   document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
-  
-  if (<?php echo $currentObject != null ?>){
+
+  if (<?php echo json_encode($currentObject)?> != null){
     document.getElementsByTagName("h1")[0].innerHTML = "Modifier l'objet";
-    document.getElementById("confirm").value = "Modifier"
+    document.getElementById("confirm").value = "Modifier";
 
     document.getElementById("name").value = "<?php echo $currentObject['name'] ?>";
     document.getElementById("image").value = "<?php echo $currentObject['image'] ?>";
