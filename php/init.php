@@ -12,7 +12,7 @@ function console_log( $data ){
 function miniTileObject($object){
     echo 
      '<div class="element-cat id">',
-     '<a href="?p=addObject&c='.$object['numCategorie'].'&o='.$object['numObject'].'">',
+     '<a class="linkObject" href="?p=addObject&c='.$object['numCategorie'].'&o='.$object['numObject'].'">',
      '<p class="nameObject">'.$object['name'].'</p>',
      '<p class="tagsObject"> Tags: '.$object['tags'].'</p>',
      '<p class="descriptionObject"> Desc: '.$object['description'].'</p>',

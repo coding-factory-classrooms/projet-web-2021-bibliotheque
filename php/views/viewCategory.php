@@ -30,7 +30,7 @@ if ($listObjectBeforeFetch != false){
 <!DOCTYPE html>
 <head>
     <script src="https://kit.fontawesome.com/87a0ec3c80.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/viewCat.css">
+    <link rel="stylesheet" href="css/viewCatego.css">
 </head>
 <body>
     <div class="container-obj">
@@ -51,10 +51,7 @@ if ($listObjectBeforeFetch != false){
         </div>
         <div id="object">
             <div class="element-cat">
-                <a <?php echo "href=?p=addObject&c=".$index ?>>
-                    <br>
-                    <br>
-                    <br>
+                <a class="linkCreateObject" <?php echo "href=?p=addObject&c=".$index ?>>
                     <i class="fa fa-plus"> Ajouter un Objet</i>
                 </a>
             </div>
@@ -87,11 +84,11 @@ function orderChanger(){
     if (orderBy.classList[1] == "fa-plus"){
         objects.forEach(object => {
             object.classList.add("element-cat");
-            //object.classList.remove("");
+            object.classList.remove("element-displayRow");
         })
     }else{
         objects.forEach(object => {
-            //object.classList.add("");
+            object.classList.add("element-displayRow");
             object.classList.remove("element-cat");
         })
     }

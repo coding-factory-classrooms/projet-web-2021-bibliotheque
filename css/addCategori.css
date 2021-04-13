@@ -168,3 +168,7 @@ p.advancementObject{
     font-size: 13px;
     margin: 3% 5% 0% 3%;
 }
+.linkObject{
+    color: black;
+    text-decoration: none;
+}
