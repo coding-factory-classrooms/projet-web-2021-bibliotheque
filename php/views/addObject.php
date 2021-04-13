@@ -88,9 +88,15 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 
       <input class="hidden" name="currentObject" value="<?php echo $currentObject["numObject"],$currentObject["numCategorie"] ?>" id="currentObject">
 
-      <input type="submit" class="registerbtn" value="Confirmer" name="submit" id="confirm">
-      <input type="submit" class="registerbtn hidden" value="Supprimer" name="submit" id="suppr">
-      <a onclick="history.go(-1);"><button class="registerbtn hidden" type="button" id='undo'>Annuler</button></a>
+      <div id="btn-object">
+        <div id="btn-reset">
+          <a onclick="history.go(-1);"><button class="btn-annul hidden annim" type="button" id='undo'>Annuler</button></a>
+        </div>
+        <div id="btn-Action">
+          <input type="submit" class="btn-modObject annim" value="Confirmer" name="submit" id="confirm">
+          <input type="submit" class="btn-deleteObject hidden annim" value="Supprimer" name="submit" id="suppr">
+        </div>
+      </div>
 
     </div> 
   </form> 

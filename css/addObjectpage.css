@@ -65,3 +65,49 @@
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
+.btn-modObject{
+    border: none;
+    padding: 3%;
+    margin-right: 10%;
+    width: 40%;
+    border-radius: 10px;
+    background: #8AE3E8;
+    color: white ;
+}
+.btn-deleteObject{
+    border: none;
+    padding: 3%;
+    width: 40%;
+    border-radius: 10px;
+    background: #be333a;
+    color: white;
+}
+.btn-annul{
+    border: none;
+    padding: 3%;
+    width: 40%;
+    border-radius: 10px;
+    margin-left: 7%;
+}
+#btn-reset{
+    width: 50%;
+    margin-top: 2%;
+}
+#btn-Action{
+    width: 50%;
+    margin-top: 2%;
+    padding-left: 10%;
+}
+#btn-object{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.annim{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+.annim:hover{
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
