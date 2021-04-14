@@ -94,7 +94,11 @@ h2{
     -moz-transform: scale(1.05);
 }
 .hidden {display: none !important;}
-
+.linkCreateObject{
+    position: relative;
+    top: 40%;
+    color: #8AE3E8;
+}
 .nameObject{
     text-align: center;
 }
@@ -151,14 +155,13 @@ h2{
     color: black;
 }
 .element-displayRow > .linkCreateObject{
-   position: relative;
-   left: 40%;
+    position: relative;
+    left: 44%;
+    top: 30%;
+    color: #8AE3E8;
 }
 .element-displayRow > a.linkCreateObject >.fa{
     height: 50px;
-}
-.element-displayRow > a.linkCreateObject{
-    margin-top: 40%;
 }
 .linkObject{
     text-decoration: none;

@@ -7,6 +7,7 @@ verifLogin();
 <!doctype html>
 <html lang="fr">
 <link rel="stylesheet" href="css/addCategorie.css">
+<link rel="stylesheet" href="css/modal.css">
 <?php
 $listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie C WHERE C.numUser = '.$_SESSION['ID'].' ');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
@@ -49,7 +50,17 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           echo '<div id="cat-data">';
           echo '<p>'.$listCategory[$i]['name'].'</p>';
           echo '<a href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'" ><button class="btn-linkCat" type="button">Afficher plus ...</button></a>';
-          echo '<button class="btn-Cat modify" type="submit">Modifier</button>';
+          echo '<button class="btn-Cat" id="btn-modify" type="submit">Modifier</button>';
+          ?>
+          <!--Modal-->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="modal-close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          </div>
+          <?php
           echo '<a href="?p=deleteCategory&c='.$listCategory[$i]['numCategorie'].'"><button class="btn-Cat delete" type="submit">Supprimer</button></a>';
           echo '</div>';
           echo '<div id="objects-data">';
@@ -77,5 +88,6 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         ?>
       </div>
   </div>
+  <script src="js/modal.js" defer></script>
 </body>
 </html>
