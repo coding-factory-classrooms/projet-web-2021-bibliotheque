@@ -40,8 +40,8 @@ if ($resultDB){
             if (!$isTaken){
                 //Prepare to add the object
                 $req = $db->prepare('INSERT INTO item (
-                    numUser, numCategorie, numObject, name, image, description, tags, advancement
-                    ) VALUES (:numUser, :numCategorie, :numObject, :name, :image, :description, :tags, :advancement)');
+                    numUser, numCategorie, numObject, name, image, description, tags
+                    ) VALUES (:numUser, :numCategorie, :numObject, :name, :image, :description, :tags)');
 
                 $req->bindValue(':numUser' , $_SESSION['ID']); 
                 $req->bindValue(':numCategorie' , $resultDB['numCategorie']);
@@ -49,7 +49,7 @@ if ($resultDB){
                 $req->bindValue(':name' , $result["name"]);
 
                 //Because this parameters can be blank, we need to specify it clearly
-                $notEssentials = ['image','description','tags','advancement'];
+                $notEssentials = ['image','description','tags'];
                 foreach($notEssentials as $notEssential){
                     if ($result[$notEssential] == ''){
                         $req->bindValue(':'.$notEssential, '');
@@ -74,7 +74,9 @@ if ($resultDB){
             $currentObject = explode(",", $result["currentObject"]);
 
             //Because there some problems if result["advancement"] is always visible
-            if (isset($result['advancement'])){ $adv = $result["advancement"];} 
+            if (isset($result['advancement'])){
+                $adv = implode(",",$result["advancement"]);
+            } 
             else { $adv = ""; }
 
             //Modify all value to make sure we lose nothing new

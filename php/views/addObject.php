@@ -65,10 +65,7 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <label class="data" for="tags"><b>Tags</b></label>
       <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
       
-      <div class="hidden" id="advancementContainer">
-        <label class="data" for="advancement"><b>Avancement</b></label>
-        <input class="inputData" type="text" name="advancement" id="advancement">
-      </div>
+      <div class="hidden" id="advancementContainer"></div>
       <?php
       //If Error from the connexion.php, print the error 
       if (isset($_SESSION['error_message'])) {
@@ -96,14 +93,15 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 <script>
   <?php 
     if ($index != -1){
-      $hasAdvancement = count(unserialize(base64_decode($listCategory[$index]['advancement']))) > 0;
+      $advancements = unserialize(base64_decode($listCategory[$index]['advancement']));
+      $hasAdvancement = count($advancements) > 0;
           
       if ($hasAdvancement){
-        echo "document.getElementById('advancementContainer').classList.remove('hidden')";
+        echo "document.getElementById('advancementContainer').classList.remove('hidden');";
       }
     }
   ?>
-if (<?php echo $index ?> != -1){
+if (<?php echo $index; ?> != -1){
   
   document.getElementById("category").value = "<?php echo $listCategory[$index]['name'] ?>";
 
@@ -120,11 +118,27 @@ if (<?php echo $index ?> != -1){
     document.getElementById("suppr").classList.remove("hidden");
     document.getElementById("categoryContainer").classList.add("hidden");
 
-    if (<?php echo json_encode($hasAdvancement); ?>==true){
-      document.getElementById("advancement").value = "<?php echo $currentObject['advancement'] ?>";
-    }
+    <?php
+      if ($hasAdvancement){
+        $objectAdvancement = explode(",",$currentObject["advancement"]);
+        echo 'console.log('. json_encode( $objectAdvancement ) .');';
+        $inputAdv = '<label class="data" for="advancement[]"><b>Avancement</b></label>';
+        for ($i=0;$i<count($advancements);$i++){
+          //If there no advancement define, we set a default value to 0
+          if (count($objectAdvancement)<count($advancements)){
+            $advance = 0;
+          }else{
+            $advance = $objectAdvancement[$i];
+          }
+          $inputAdv .='<p class="data">'.$advancements[$i].'</p><input class="inputData" type="number" name="advancement[]" value="'.$advance.'">';
+        }
+        ?>
+        document.getElementById('advancementContainer').innerHTML += <?php echo json_encode($inputAdv)?>;
+      <?php
+      }
+    ?>
+    
   }
-
 }
 </script>
 
