@@ -19,7 +19,7 @@ if (isset($_GET['c'])) {
 $categoryNameBeforeFetch = $db->query('SELECT C.name FROM categorie C WHERE C.numCategorie = '.$index.' and C.numUser = '.$_SESSION['ID'].' ');
 $categoryName = $categoryNameBeforeFetch->fetch(PDO::FETCH_ASSOC);
 
-$listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$index.' and I.numUser = '.$_SESSION['ID'].' ');
+$listObjectBeforeFetch = $db->query('SELECT * FROM item I WHERE I.numCategorie = '.$index.' and I.numUser = '.$_SESSION['ID'].' ORDER BY numObject DESC');
 if ($listObjectBeforeFetch != false){
     $listObject = $listObjectBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
 }else {
@@ -52,6 +52,9 @@ if ($listObjectBeforeFetch != false){
         <div id="object">
             <div class="element-cat">
                 <a class="linkCreateObject" <?php echo "href=?p=addObject&c=".$index ?>>
+                    <br>
+                    <br>
+                    <br>
                     <i class="fa fa-plus"> Ajouter un Objet</i>
                 </a>
             </div>
