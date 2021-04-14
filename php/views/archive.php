@@ -9,13 +9,20 @@ verifLogin();
 <link rel="stylesheet" href="css/addCategorie.css">
 <link rel="stylesheet" href="css/modal.css">
 <?php
-$listCategoryBeforeFetch = $db->query('SELECT C.numCategorie, C.name FROM categorie C WHERE C.numUser = '.$_SESSION['ID'].' ');
+$listCategoryBeforeFetch = $db->query('SELECT * FROM categorie C WHERE C.numUser = '.$_SESSION['ID'].' Order By numCategorie DESC');
 $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
+
+$messagesSlot = [];
+for ($a=0; $a<count($listCategory);$a++){
+  array_push($messagesSlot,unserialize(base64_decode($listCategory[$a]['advancement'])));
+}
 ?>
 
 <body>
   <div id="container-archive">
-      <div id="container-add">
+
+      <!--To add a category or an Object-->
+        <div id="container-add">
           <div id="container-addCat">
             <form action= "php/management/addCategoryDB.php">
               <h1>Ajouter une catégorie</h1>
@@ -31,7 +38,6 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
               }
               ?>
               <button class="inputAdd" type="submit" class="registerbtn">Ajouter</button>
-              <!--<p><br><a href="?p=main"><- Return</a>.</p>-->
             </form>
           </div>
         
@@ -44,22 +50,41 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <?php
-        for ($i=count($listCategory)-1; $i>=0; $i--){
-          //Printer of the Categories
-          echo '<div id="container-dataExist">';
-          echo '<div id="cat-data">';
-          echo '<p>'.$listCategory[$i]['name'].'</p>';
-          echo '<a href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'" ><button class="btn-linkCat" type="button">Afficher plus ...</button></a>';
-          echo '<button class="btn-Cat" id="btn-modify" type="submit">Modifier</button>';
+        for ($i=0; $i<count($listCategory); $i++){
+          //Print the Categories
+          echo '<div id="container-dataExist">',
+           '<div id="cat-data">',
+           '<p>'.$listCategory[$i]['name'].'</p>',
+           '<a href="?p=viewCategory&c='.$listCategory[$i]['numCategorie'].'" ><button class="btn-linkCat" type="button">Afficher plus ...</button></a>',
+           '<button class="btn-Cat modify" type="submit" onClick="openModal('.$i.')">Modifier</button>';
           ?>
           <!--Modal-->
-          <div id="myModal" class="modal">
+          <div class="modal">
+
             <!-- Modal content -->
             <div class="modal-content">
               <span class="modal-close">&times;</span>
-              <p>Some text in the Modal..</p>
+              <h2>Mofifier la Catégorie</h2>
+              <form action="php/management/modifyCategory.php">
+                <?php 
+                $advancePlaceholder = "Nombre d'emplacement à remplir";
+              
+                echo 
+                  '<label class="data" for="nameModify"></label>',
+                  '<input class="inputData" type="text" value="'.$listCategory[$i]['name'].'" placeholder="Nom" name="nameModify">',
+
+                  '<input class="hidden" name="currentCategory" value="'.$listCategory[$i]["numCategorie"].'">',
+
+                  '<input class="inputData nbMessagesAdvancement" type="number" oninput="updateNbSpot('.$i.')" value="'.count($messagesSlot[$i]).'" placeholder="'.$advancePlaceholder.'" name="advancement">',
+                  '<div class="messagesAdvancement"> </div>';
+                ?>
+                <br>
+                <input type="submit" class="btn-modObject annim" value="Confirmer" name="submit" id="confirm">
+              </form>
             </div>
+
           </div>
+
           <?php
           echo '<a href="?p=deleteCategory&c='.$listCategory[$i]['numCategorie'].'"><button class="btn-Cat delete" type="submit">Supprimer</button></a>';
           echo '</div>';
@@ -86,8 +111,22 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
           echo '</div></div></div>';
         }
         ?>
-      </div>
   </div>
   <script src="js/modal.js" defer></script>
+  <script> 
+
+  function openModal(id){ 
+    let messageSlot = <?php echo json_encode($messagesSlot);?>;
+    let spotDiv = modals[id].getElementsByClassName("messagesAdvancement")[0];
+
+    modals[id].style.display = "block";
+    updateNbSpot(id);
+    //If there value, we fill the input in it.
+    for (i=0;i< messageSlot[id].length; i++){
+        input = spotDiv.getElementsByClassName("msg-adv")[i];
+        input.value = messageSlot[id][i];
+      }
+  }
+  </script>
 </body>
 </html>

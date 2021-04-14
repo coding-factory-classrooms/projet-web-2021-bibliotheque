@@ -52,9 +52,6 @@ if ($listObjectBeforeFetch != false){
         <div id="object">
             <div class="element-cat">
                 <a class="linkCreateObject" <?php echo "href=?p=addObject&c=".$index ?>>
-                    <br>
-                    <br>
-                    <br>
                     <i class="fa fa-plus"> Ajouter un Objet</i>
                 </a>
             </div>
