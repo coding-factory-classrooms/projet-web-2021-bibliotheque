@@ -15,8 +15,9 @@ function miniTileObject($object){
      '<a class="linkObject" href="?p=addObject&c='.$object['numCategorie'].'&o='.$object['numObject'].'">',
      '<p class="nameObject"><b>'.$object['name'].'</b></p>',
      '<p class="tagsObject"> <i>Tags:</i> '.$object['tags'].'</p>',
-     '<p class="descriptionObject"> Desc: '.$object['description'].'</p>',
-     '<p class=advancementObject> advancement: <p>',
+     '<br>',
+     '<p class="descriptionObject hidden"> Desc: '.$object['description'].'</p>',
+     '<p class="advancementObject hidden"> advancement: '.$object['advancement'].'<p>',
      '</a>',
      '</div>';
 }
