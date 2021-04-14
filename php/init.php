@@ -13,13 +13,12 @@ function miniTileObject($object){
     echo 
      '<div class="element-cat id">',
      '<a class="linkObject" href="?p=addObject&c='.$object['numCategorie'].'&o='.$object['numObject'].'">',
-     '<p class="nameObject">'.$object['name'].'</p>',
-     '<p class="tagsObject"> Tags: '.$object['tags'].'</p>',
+     '<p class="nameObject"><b>'.$object['name'].'</b></p>',
+     '<p class="tagsObject"> <i>Tags:</i> '.$object['tags'].'</p>',
      '<p class="descriptionObject"> Desc: '.$object['description'].'</p>',
      '<p class=advancementObject> advancement: <p>',
      '</a>',
      '</div>';
-     
 }
 
 function verifLogin(){
@@ -32,6 +31,6 @@ $req = $db->query('SELECT U.username FROM user as U');
 $resultDB = $req->fetchAll(PDO::FETCH_ASSOC);
 
 //The different status
-$pages = ['home','register','login','stats','main','archive','addObject','viewCategory'];
-$del = ['logOut', 'delCategory'];
+$pages = ['home','register','login','stats','main','archive','addObject','viewCategory','deleteCategory'];
+$del = ['logOut'];
 ?>
