@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php require_once "php/init.php";?>
 <body>
     <h3>Archivez vos Envies !</h3>

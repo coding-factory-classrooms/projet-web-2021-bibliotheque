@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/404.css" />
 </head>
-
 <body>
-
 	<div id="nontrouv">
 		<div class="nontrouv">
             <img src="asset/logo_larchive.png" height="40%" width="40%">
@@ -22,8 +19,6 @@
 			<a href="?p=home">Accueil</a>
         </div>
     </div>
-    
-    
 </body>
 
 </html>

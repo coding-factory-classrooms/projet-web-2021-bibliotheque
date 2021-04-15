@@ -111,3 +111,19 @@
     -webkit-transform: scale(1.10);
     -moz-transform: scale(1.10);
 }
+.inputData-number{
+    width: 7%;
+    height: 41px;
+    margin: 1% 0% 0% 2%;
+    padding: 0% 1% 0% 2%;
+    display: inline-block;
+    border: 1px solid #8AE3E8;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#display-inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 3% 0% 3% 0%;
+}

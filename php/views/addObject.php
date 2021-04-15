@@ -65,7 +65,9 @@ $listCategory = $listCategoryBeforeFetch->fetchAll(PDO::FETCH_ASSOC);
       <label class="data" for="tags"><b>Tags</b></label>
       <input class="inputData" type="text" placeholder="Tags" name="tags" id="tags">
       
-      <div class="hidden" id="advancementContainer"></div>
+      <div class="hidden" id="advancementContainer">
+
+      </div>
       <?php
       //If Error from the connexion.php, print the error 
       if (isset($_SESSION['error_message'])) {
@@ -130,7 +132,7 @@ if (<?php echo $index; ?> != -1){
           }else{
             $advance = $objectAdvancement[$i];
           }
-          $inputAdv .='<p class="data">'.$advancements[$i].'</p><input class="inputData" type="number" name="advancement[]" value="'.$advance.'">';
+          $inputAdv .='<div id="display-inline"><p class="data">'.$advancements[$i].'</p><input class="inputData-number" type="number" name="advancement[]" value="'.$advance.'"></div>';
         }
         ?>
         document.getElementById('advancementContainer').innerHTML += <?php echo json_encode($inputAdv)?>;
