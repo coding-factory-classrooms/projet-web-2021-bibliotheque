@@ -56,12 +56,6 @@ h1{
 #p1{
     font-size: 20px;
 }
-.inputData{
-    width: 60%;
-    border: none;
-    border-bottom:2px solid #8AE3E8;
-    margin-right: 2%;
-}
 .inputAdd{
     padding: 0.5%;
     border: none;
@@ -145,7 +139,7 @@ h1{
     background-color: #be333a;
     color: white;
 }
-#btn-modify{
+.modify{
     background-color: #8AE3E8;
     color: white;
 }
@@ -168,7 +162,9 @@ p.advancementObject{
     font-size: 13px;
     margin: 3% 5% 0% 3%;
 }
-.linkObject{
-    color: black;
-    text-decoration: none;
-}
+.inputData{
+    width: 65%;
+    border: none;
+    border-bottom:2px solid #8AE3E8;
+    margin: 0% 0% 0% 1%;
+  }

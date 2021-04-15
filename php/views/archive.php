@@ -70,16 +70,22 @@ for ($a=0; $a<count($listCategory);$a++){
                 $advancePlaceholder = "Nombre d'emplacement à remplir";
               
                 echo 
-                  '<label class="data" for="nameModify"></label>',
-                  '<input class="inputData" type="text" value="'.$listCategory[$i]['name'].'" placeholder="Nom" name="nameModify">',
-
-                  '<input class="hidden" name="currentCategory" value="'.$listCategory[$i]["numCategorie"].'">',
-
-                  '<input class="inputData nbMessagesAdvancement" type="number" oninput="updateNbSpot('.$i.')" value="'.count($messagesSlot[$i]).'" placeholder="'.$advancePlaceholder.'" name="advancement">',
-                  '<div class="messagesAdvancement"> </div>';
+                  '<div class="displayLabel-input">',
+                    '<div class="label-input">',
+                      '<label class="data name" for="nameModify">Name:</label>',
+                      '<input class="inputData-modal" type="text" value="'.$listCategory[$i]['name'].'" placeholder="Nom" name="nameModify">',
+                    '</div>',
+                    '<input class="hidden" name="currentCategory" value="'.$listCategory[$i]["numCategorie"].'">',
+                    '<div class="label-input">',
+                      '<label class="data" for="modfyNumberAdvancement">Nombre d&apos;avancement:</label>',
+                      '<input class="inputData-modal nbMessagesAdvancement" type="number" oninput="updateNbSpot('.$i.')"  value="'.count($messagesSlot[$i]).'" placeholder="'.$advancePlaceholder.'" name="advancement">',
+                    '</div>',
+                  '</div>',
+                  '<p id="label-msgAvancement">Name Avancement:</p>',
+                  '<div class="messagesAdvancement"></div>';
                 ?>
                 <br>
-                <input type="submit" class="btn-modObject annim" value="Confirmer" name="submit" id="confirm">
+                <input type="submit" class="btn-modObject" value="Confirmer" name="submit" id="confirm">
               </form>
             </div>
 

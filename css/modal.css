@@ -36,3 +36,54 @@
     text-decoration: none;
     cursor: pointer;
   }
+  .linkObject{
+    color: black;
+    text-decoration: none;
+}
+.displayLabel-input{
+  margin-left: 18.8%;
+  width: 60%;
+}
+.label-input{
+  margin-top: 0.5%;
+}
+.inputData-modal{
+  width: 10%;
+  border: none;
+  border-bottom:2px solid #8AE3E8;
+  margin: 0% 0% 0% 1%;
+}
+.messagesAdvancement{
+    display: flex;
+    flex-direction: column;
+}
+.msg-adv{
+    position: relative;
+    width: 40%;
+    border: 2px solid #8AE3E8;
+    border-radius: 10px;
+    margin-top: 3px;
+    padding: 0.5% 0% 0.5% 0%;
+    left: 30%;
+}
+#label-msgAvancement{
+  margin: 0.5% 0% 0.5% 0%;
+}
+.btn-modObject{
+  padding: 0.5%;
+  width: 10%;
+  height: 15%;
+  border-radius: 10px;
+  border: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+}
+.btn-modObject:hover{
+  background-color: #8AE3E8;
+  color: #fefefe;
+  -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+}
+.name{
+  margin-right: 20.5%;
+}
